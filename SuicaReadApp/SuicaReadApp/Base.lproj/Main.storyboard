@@ -16,26 +16,96 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yg3-Gp-FPv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="244" width="414" height="498"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suica" translatesAutoresizingMaskIntoConstraints="NO" id="qN1-mN-xju">
+                                <rect key="frame" x="50" y="94" width="314" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="WBB-kF-7mq"/>
+                                </constraints>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BJD-rH-OAh">
+                                <rect key="frame" x="161.5" y="777" width="91" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="oRr-CN-oMe"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="手動"/>
+                                    <segment title="自動"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Yg3-Gp-FPv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3h7-dQ-bpm"/>
+                            <constraint firstItem="Yg3-Gp-FPv" firstAttribute="top" secondItem="qN1-mN-xju" secondAttribute="bottom" constant="50" id="4zi-jJ-GGQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yg3-Gp-FPv" secondAttribute="trailing" id="NdJ-H2-uGl"/>
                             <constraint firstItem="Yg3-Gp-FPv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Or2-Wk-8p8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yg3-Gp-FPv" secondAttribute="bottom" id="SZc-kz-CNZ"/>
-                            <constraint firstItem="Yg3-Gp-FPv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="n0G-xE-icI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BJD-rH-OAh" secondAttribute="bottom" constant="50" id="W2v-Gc-48y"/>
+                            <constraint firstItem="qN1-mN-xju" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Yux-Jz-Rgh"/>
+                            <constraint firstItem="BJD-rH-OAh" firstAttribute="top" secondItem="Yg3-Gp-FPv" secondAttribute="bottom" constant="35" id="Z4K-DV-YAz"/>
+                            <constraint firstItem="BJD-rH-OAh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fI9-ql-GvY"/>
+                            <constraint firstItem="qN1-mN-xju" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="liE-lj-Bgg"/>
+                            <constraint firstAttribute="trailing" secondItem="qN1-mN-xju" secondAttribute="trailing" constant="50" id="yh8-Q8-CdV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Yg3-Gp-FPv" id="aHo-xT-6el"/>
+                        <outlet property="tableView" destination="Yg3-Gp-FPv" id="4IE-1N-Xjg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="H46-HI-acF">
+            <objects>
+                <tableViewController id="YAU-s5-QM2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zan-N9-If0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="R32-4U-ICC">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R32-4U-ICC" id="fP4-Sr-OA1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YAU-s5-QM2" id="1R7-m2-gOz"/>
+                            <outlet property="delegate" destination="YAU-s5-QM2" id="hDq-GL-SA5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ssi-6M-5NC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jc6-z0-fvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="116"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IcG-0z-rvr">
+            <objects>
+                <navigationController id="tKa-62-PSH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6YW-a6-ohm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YAU-s5-QM2" kind="relationship" relationship="rootViewController" id="qav-df-5Oa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p8u-R2-Sr2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="116"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="suica" width="489" height="310"/>
+    </resources>
 </document>

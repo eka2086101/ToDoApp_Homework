@@ -10,13 +10,13 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var TitleLabel: UIView!
+
     
-    @IBOutlet weak var ImageView: UIImageView!
+    @IBOutlet weak var iconView: UIImageView!
     
-    @IBOutlet weak var Title: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var descliption: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

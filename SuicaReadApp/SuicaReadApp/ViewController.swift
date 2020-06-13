@@ -1,38 +1,48 @@
-//
-//  ViewController.swift
-//  SuicaReadApp
-//
-//  Created by Miki Arakawa on 2020/06/06.
-//  Copyright © 2020 Miki Arakawa. All rights reserved.
-//
 
-let infoLists: [KameInfo] = [
-     KameInfo(iconName: "02", title: "もでーん", description: "おなかいっぱいなかめくん"),
-     KameInfo(iconName: "12", title: "ぐしゅん", description: "泣き虫かめくん"),
-     KameInfo(iconName: "14", title: "いまいくの", description: "いくフリしておっくうになってるかめくん"),
-     KameInfo(iconName: "19", title: "むりなの", description: "拒否するかめくん"),
-     KameInfo(iconName: "22", title: "きゅうけい", description: "さぼってるかめくん"),
-     KameInfo(iconName: "28", title: "にゃーっっ", description: "驚いてへんな声だしてるかめくん"),
-     KameInfo(iconName: "32", title: "にしー", description: "ほめてもらったかめくん"),
-     KameInfo(iconName: "29", title: "わほーい", description: "テンションアゲアゲなかめくん"),
-     KameInfo(iconName: "35", title: "にひひ", description: "わるだくみしているかめくん"),
-     KameInfo(iconName: "38", title: "もうだめだ・・・", description: "ギブアップしたかめくん"),
-     KameInfo(iconName: "avatar", title: "ふつう", description: "やさしげなかめくん")
- ]
+
+var infoLists: [Info] = []
+var TitleLists: [Title] = []
+
+let hoge: String? = nil
+
+func ManualRead() {
+    
+    var csvLines = [String]()
+
+     guard let path = Bundle.main.path(forResource:"dataList", ofType:"csv") else {
+         print("csvファイルがないよ")
+         return
+     }
+
+     do {
+         let csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+         csvLines = csvString.components(separatedBy: .newlines)
+         csvLines.removeLast()
+     } catch let error as NSError {
+         print("エラー: \(error)")
+         return
+     }
+
+    var number:Int! = 0
+    
+     for animalData in csvLines {
+         let animalDetail = animalData.components(separatedBy: ",")
+//         print("【出発】\(animalDetail[2])　\(animalDetail[3])　【到着】\(animalDetail[5]) \(animalDetail[6])")
+     if (  number == 0  )  {
+//        TitleLists.append(Title(iconName: "avatar", datetime: : "\(animalDetail[0])",title: "\(animalDetail[0])", description: "\(animalDetail[2])　\(animalDetail[3])　から\(animalDetail[5]) \(animalDetail[6])まで"));
+     } else{
+            infoLists.append(Info(iconName: "avatar",datetime: "\(animalDetail[0])", title: "\(animalDetail[7])円", description: "\(animalDetail[2])　\(animalDetail[3])　 \(animalDetail[5]) \(animalDetail[6])"));
+     }
+       number = number + 1
+     }
+
+      
+}
 
 import UIKit
 
-class ViewController: UIViewController,UITextViewDelegate,UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  infoLists.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! ListViewController
-        
-        cell.ImageView.image = UIImage(named: infoLists[indexPath.row])
-    }
-    
+class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,21 +51,78 @@ class ViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,
     @IBOutlet weak var SelectAutoBtn: UISegmentedControl!
     
     override func viewDidLoad() {
+        
+         ManualRead()
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        configureTableViewCell()
         tableView.delegate = self
         tableView.dataSource = self
-        configureTableViewCell()
+        
+
     }
 
     
     func configureTableViewCell(){
-        let nib = UINib(nibName: "ListViewController", bundle: nil)
-    
-        let cellID = "CustomCell"
         
+        //nibを作成
+        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+
+        let cellID = "TaskTableViewCell"
+        //tableQiewで使えるように登録する
         tableView.register(nib, forCellReuseIdentifier: cellID)
     
+    }
+    
+    //rowの数を指定するメソッド
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //infoListの数
+        return infoLists.count
+    }
+    
+    //tableViewのcellに表示する内容を返すメソッド
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
+        //iconViewの設定
+        cell.iconView.image = UIImage(named: infoLists[indexPath.row].iconName)
+        //titleの設定
+        cell.titleLabel.text = infoLists[indexPath.row].title
+        
+        cell.descriptionLabel.text = infoLists[indexPath.row].description
+        
+        return cell
+    }
+    
+    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return
+//    }
+    
+    //セクションのタイトルを設定
+    
+//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//        return "\(section)"
+//    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "\(section)"
+        return ""
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90.0
+    }
+        
+ 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        let vc = DetailViewController()
+        vc.Info = infoLists[indexPath.row]
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc,animated: true,completion: nil)
+
     }
     @IBAction func CsvModeBtn(_ sender: Any) {
         
@@ -77,27 +144,4 @@ class ViewController: UIViewController,UITextViewDelegate,UITableViewDataSource,
 
 }
 
-func ManualRead() {
-    
-    var csvLines = [String]()
-
-     guard let path = Bundle.main.path(forResource:"dataList", ofType:"csv") else {
-         print("csvファイルがないよ")
-         return
-     }
-
-     do {
-         let csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-         csvLines = csvString.components(separatedBy: .newlines)
-         csvLines.removeLast()
-     } catch let error as NSError {
-         print("エラー: \(error)")
-         return
-     }
-
-     for animalData in csvLines {
-         let animalDetail = animalData.components(separatedBy: ",")
-         print("【名前】\(animalDetail[0])　【体長】\(animalDetail[1]) cm　【体重】\(animalDetail[2]) kg")
-     }
-}
 

@@ -13,6 +13,10 @@
 		915817822492526C00B969F4 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 915817802492526C00B969F4 /* ListViewController.xib */; };
 		915817852492585E00B969F4 /* SuikaReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915817832492585E00B969F4 /* SuikaReadViewController.swift */; };
 		915817862492585E00B969F4 /* SuikaReadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 915817842492585E00B969F4 /* SuikaReadViewController.xib */; };
+		915817882493838B00B969F4 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915817872493838B00B969F4 /* Info.swift */; };
+		9158178F2493F49F00B969F4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9158178D2493F49F00B969F4 /* DetailViewController.swift */; };
+		915817902493F49F00B969F4 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9158178E2493F49F00B969F4 /* DetailViewController.xib */; };
+		915817922494479200B969F4 /* dataList.csv in Resources */ = {isa = PBXBuildFile; fileRef = 915817912494479200B969F4 /* dataList.csv */; };
 		917867A3248B6FBA00BE3421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917867A2248B6FBA00BE3421 /* AppDelegate.swift */; };
 		917867A5248B6FBA00BE3421 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917867A4248B6FBA00BE3421 /* SceneDelegate.swift */; };
 		917867A7248B6FBA00BE3421 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917867A6248B6FBA00BE3421 /* ViewController.swift */; };
@@ -28,6 +32,10 @@
 		915817802492526C00B969F4 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		915817832492585E00B969F4 /* SuikaReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuikaReadViewController.swift; sourceTree = "<group>"; };
 		915817842492585E00B969F4 /* SuikaReadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuikaReadViewController.xib; sourceTree = "<group>"; };
+		915817872493838B00B969F4 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		9158178D2493F49F00B969F4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9158178E2493F49F00B969F4 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		915817912494479200B969F4 /* dataList.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = dataList.csv; sourceTree = "<group>"; };
 		9178679F248B6FBA00BE3421 /* SuicaReadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuicaReadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		917867A2248B6FBA00BE3421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		917867A4248B6FBA00BE3421 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,7 @@
 		91786796248B6FBA00BE3421 = {
 			isa = PBXGroup;
 			children = (
+				915817912494479200B969F4 /* dataList.csv */,
 				917867A1248B6FBA00BE3421 /* SuicaReadApp */,
 				917867A0248B6FBA00BE3421 /* Products */,
 			);
@@ -77,7 +86,10 @@
 				917867A2248B6FBA00BE3421 /* AppDelegate.swift */,
 				917867A4248B6FBA00BE3421 /* SceneDelegate.swift */,
 				917867A6248B6FBA00BE3421 /* ViewController.swift */,
+				9158178D2493F49F00B969F4 /* DetailViewController.swift */,
+				9158178E2493F49F00B969F4 /* DetailViewController.xib */,
 				917867A8248B6FBA00BE3421 /* Main.storyboard */,
+				915817872493838B00B969F4 /* Info.swift */,
 				917867AB248B6FBC00BE3421 /* Assets.xcassets */,
 				917867AD248B6FBC00BE3421 /* LaunchScreen.storyboard */,
 				9158177324924E8700B969F4 /* TaskTableViewCell.swift */,
@@ -148,6 +160,8 @@
 				9158177624924E8700B969F4 /* TaskTableViewCell.xib in Resources */,
 				917867AF248B6FBC00BE3421 /* LaunchScreen.storyboard in Resources */,
 				915817822492526C00B969F4 /* ListViewController.xib in Resources */,
+				915817902493F49F00B969F4 /* DetailViewController.xib in Resources */,
+				915817922494479200B969F4 /* dataList.csv in Resources */,
 				917867AC248B6FBC00BE3421 /* Assets.xcassets in Resources */,
 				915817862492585E00B969F4 /* SuikaReadViewController.xib in Resources */,
 				917867AA248B6FBA00BE3421 /* Main.storyboard in Resources */,
@@ -167,6 +181,8 @@
 				915817812492526C00B969F4 /* ListViewController.swift in Sources */,
 				915817852492585E00B969F4 /* SuikaReadViewController.swift in Sources */,
 				917867A5248B6FBA00BE3421 /* SceneDelegate.swift in Sources */,
+				915817882493838B00B969F4 /* Info.swift in Sources */,
+				9158178F2493F49F00B969F4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
